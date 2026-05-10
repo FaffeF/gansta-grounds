@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport">
   <title>Kartoverlay</title>
-  <meta name="theme-color" content="#111827" />
-  <link rel="preconnect" href="https://unpkg.com" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <meta content="#111827" name="theme-color">
+  <link href="https://unpkg.com" rel="preconnect">
+  <link crossorigin="" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" rel="stylesheet">
   <style>
     :root { --bg:#0b1220; --panel:rgba(15,23,42,.82); --text:#f8fafc; --muted:#cbd5e1; --accent:#38bdf8; --line:rgba(255,255,255,.14); }
     * { box-sizing: border-box; }
@@ -28,21 +29,33 @@
   <div class="panel">
     <div class="row">
       <div>
-        <div class="title">Kartoverlay</div>
-        <div id="status" class="meta">Tryck på &quot;Visa min position&quot;.</div>
+        <div class="title">
+          Kartoverlay
+        </div>
+        <div class="meta" id="status">
+          Tryck på &quot;Visa min position&quot;.
+        </div>
       </div>
-      <div class="spacer"></div>
-      <button id="fitBtn">Visa hela kartan</button>
-      <button id="locateBtn" class="primary">Visa min position</button>
-    </div>
-  </div>
-  <div class="hint">Öppna sidan i mobilen över HTTPS, godkänn platsåtkomst och lägg gärna sidan på hemskärmen för app-lik känsla.</div>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+      <div class="spacer"></div><button id="fitBtn">Visa hela kartan</button> <button class="primary" id="locateBtn">Visa min
+        position</button>
+      </div>
+      </div>
+      <div class="hint">
+        Öppna sidan i mobilen över HTTPS, godkänn platsåtkomst och lägg gärna sidan på hemskärmen för app-lik känsla.
+      </div>
+  <script crossorigin="" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
-    const map = L.map('map', { zoomControl: true, preferCanvas: true }).setView([59.3293, 18.0686], 13);
+
+
+
+
+
+
+  const map = L.map('map', { zoomControl: true, preferCanvas: true }).setView([59.62457143810071, 17.12804563833819], 13);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; OpenStreetMap' }).addTo(map);
     L.tileLayer('https://mapwarper.net/maps/tile/106490/{z}/{x}/{y}.png', { opacity: 0.82, maxZoom: 22, attribution: 'Overlay: MapWarper' }).addTo(map);
-    const overlayBounds = L.latLngBounds([[59.315, 18.02], [59.345, 18.11]]);
+              const overlayBounds = L.latLngBounds([[59.62, 17.125], [59.63, 17.13]]);
     map.fitBounds(overlayBounds);
     let marker = null, accuracyCircle = null;
     const statusEl = document.getElementById('status');
